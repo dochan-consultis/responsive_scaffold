@@ -41,7 +41,7 @@
 ## 0.2.0
 
 * Adding Back `emptyItems` and `nullItems`
-* Fixing Bug and Adding `.custom` option to specifity `SliverChildDelagate`
+* Fixing Bug and Adding `.custom` option to specifity `SliverchildDelegate`
 * Updated Example
 
 ## 0.1.0
