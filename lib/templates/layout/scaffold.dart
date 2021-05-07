@@ -190,18 +190,14 @@ class ResponsiveScaffold extends StatelessWidget {
   }
 
   List<Widget>? _getActions() {
-    var result;
+    List<Widget> result = [];
 
     if (trailing != null) {
-      result = [];
-      result.add(trailing);
+      result.add(trailing!);
     }
 
     if (endDrawer != null) {
-      if (result == null) {
-        result = [];
-      }
-      result.add(endDrawer);
+      result.add(endDrawer!);
     }
 
     return result;
