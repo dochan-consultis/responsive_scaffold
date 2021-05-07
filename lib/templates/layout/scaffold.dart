@@ -63,11 +63,7 @@ class ResponsiveScaffold extends StatelessWidget {
                           elevation: appBarElevation,
                           automaticallyImplyLeading: false,
                           title: title,
-                          actions: <Widget?>[
-                            if (trailing != null) ...[
-                              trailing,
-                            ],
-                          ] as List<Widget>?,
+                          actions: _getTrailing(),
                         ),
                         body: Row(
                           children: <Widget>[
@@ -117,11 +113,7 @@ class ResponsiveScaffold extends StatelessWidget {
               automaticallyImplyLeading: false,
               title: title,
               leading: _MenuButton(iconData: menuIcon),
-              actions: <Widget?>[
-                if (trailing != null) ...[
-                  trailing,
-                ],
-              ] as List<Widget>?,
+              actions: _getTrailing(),
             ),
             body: SafeArea(
               right: false,
@@ -189,15 +181,21 @@ class ResponsiveScaffold extends StatelessWidget {
     );
   }
 
-  List<Widget>? _getActions() {
+  List<Widget> _getActions() {
+    List<Widget> result = _getTrailing();
+
+    if (endDrawer != null) {
+      result.add(endDrawer!);
+    }
+
+    return result;
+  }
+
+  List<Widget> _getTrailing() {
     List<Widget> result = [];
 
     if (trailing != null) {
       result.add(trailing!);
-    }
-
-    if (endDrawer != null) {
-      result.add(endDrawer!);
     }
 
     return result;
