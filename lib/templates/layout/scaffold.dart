@@ -179,14 +179,7 @@ class ResponsiveScaffold extends StatelessWidget {
             automaticallyImplyLeading: false,
             leading: _MenuButton(iconData: menuIcon),
             title: title,
-            actions: <Widget?>[
-              if (trailing != null) ...[
-                trailing,
-              ],
-              if (endDrawer != null) ...[
-                _OptionsButton(iconData: endIcon),
-              ]
-            ] as List<Widget?>,
+            actions: _getActions(),
           ),
           body: body,
           floatingActionButton: floatingActionButton,
@@ -194,6 +187,24 @@ class ResponsiveScaffold extends StatelessWidget {
         );
       },
     );
+  }
+
+  List<Widget>? _getActions() {
+    var result;
+
+    if (trailing != null) {
+      result = [];
+      result.add(trailing);
+    }
+
+    if (endDrawer != null) {
+      if (result == null) {
+        result = [];
+      }
+      result.add(endDrawer);
+    }
+
+    return result;
   }
 }
 
