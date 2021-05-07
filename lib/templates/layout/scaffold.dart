@@ -186,7 +186,7 @@ class ResponsiveScaffold extends StatelessWidget {
               if (endDrawer != null) ...[
                 _OptionsButton(iconData: endIcon),
               ]
-            ] as List<Widget>?,
+            ] as List<Widget?>,
           ),
           body: body,
           floatingActionButton: floatingActionButton,
